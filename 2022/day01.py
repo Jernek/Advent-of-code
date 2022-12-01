@@ -1,4 +1,4 @@
-from time import perf_counter as pc
+from time import perf_counter as timer
 
 def get_Data():
     data = []
@@ -16,12 +16,12 @@ def part2(Input):
 
 
 if __name__ == "__main__":
-    t0 = pc()
+    t0 = timer()
     for i in range(1000):
         data = get_Data()
         Input = [sum(vector) for vector in data]
         part1(Input)
         part2(Input)
-    t1 = pc()-t0
-    print(f"Code runs on: {t1} ms \nAnwser for First Star: {part1(Input)} \
-            \nAnswer for Second Star: {part2(Input)}")
+    t1 = timer()-t0
+    print(f"Code runs on: {t1} ms \nAnwser for First Star: {part1(Input)} cal.\
+            \nAnswer for Second Star: {part2(Input)} cal.")
