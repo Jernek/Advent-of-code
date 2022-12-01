@@ -1,3 +1,5 @@
+from time import perf_counter as pc
+
 def get_Data():
     data = []
     with open('day01.txt', 'r') as file:
@@ -10,11 +12,16 @@ def part1(Input):
     return max(Input)
 
 def part2(Input): 
-    return (sum(sorted(Input)[-3:]))
-    
+    return sum(sorted(Input)[-3:])
+
 
 if __name__ == "__main__":
-    data = get_Data()
-    Input = [sum(vector) for vector in data]
-    print(f"Solution to First star: {part1(Input)}")
-    print(f"\nSolution to Second star: {part2(Input)}")
+    t0 = pc()
+    for i in range(1000):
+        data = get_Data()
+        Input = [sum(vector) for vector in data]
+        part1(Input)
+        part2(Input)
+    t1 = pc()-t0
+    print(f"Code runs on: {t1} ms \nAnwser for First Star: {part1(Input)} \
+            \nAnswer for Second Star: {part2(Input)}")
