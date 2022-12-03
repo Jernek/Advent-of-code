@@ -1,5 +1,5 @@
 with open("day02.txt", "r") as file: 
-    Data = [line.splitlines() for line in file]
+    Data = [line.split('\n') for line in file]
 
 def part1(Score = 0):
     Map = {"X":("C","B",1), "Y":("A","C",2), "Z":("B","A",3)}
